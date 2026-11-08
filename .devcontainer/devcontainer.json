@@ -1,14 +1,9 @@
 {
   "name": "C# Jupyter: случайность в играх",
   "image": "mcr.microsoft.com/devcontainers/dotnet:9.0",
-  "features": {
-    "ghcr.io/devcontainers/features/python:1": {
-      "installJupyterlab": true
-    }
-  },
-  "postCreateCommand": "dotnet tool install -g Microsoft.dotnet-interactive && $HOME/.dotnet/tools/dotnet-interactive jupyter install",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3-venv && python3 -m venv $HOME/.venv && $HOME/.venv/bin/pip install jupyter && dotnet tool install -g Microsoft.dotnet-interactive && PATH=$HOME/.venv/bin:$PATH $HOME/.dotnet/tools/dotnet-interactive jupyter install",
   "remoteEnv": {
-    "PATH": "${containerEnv:PATH}:/home/vscode/.dotnet/tools"
+    "PATH": "${containerEnv:PATH}:/home/vscode/.dotnet/tools:/home/vscode/.venv/bin"
   },
   "customizations": {
     "vscode": {
