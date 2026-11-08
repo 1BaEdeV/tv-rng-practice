@@ -1,0 +1,21 @@
+{
+  "name": "C# Jupyter: случайность в играх",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:9.0",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "installJupyterlab": true
+    }
+  },
+  "postCreateCommand": "dotnet tool install -g Microsoft.dotnet-interactive && $HOME/.dotnet/tools/dotnet-interactive jupyter install",
+  "remoteEnv": {
+    "PATH": "${containerEnv:PATH}:/home/vscode/.dotnet/tools"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-toolsai.jupyter"]
+    },
+    "codespaces": {
+      "openFiles": ["rng_practicum_student.ipynb"]
+    }
+  }
+}
